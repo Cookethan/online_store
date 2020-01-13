@@ -11,39 +11,38 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :price %>
     <%= form.text_field :price %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :quantity %>
     <%= form.number_field :quantity %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :brand %>
     <%= form.text_field :brand %>
   </div>
 
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.number_field :rating %>
+  <div class="form-group">
+    <strong>Upload Product Image: </strong>
+    <%= form.file_field :image %>
   </div>
 
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= form.number_field :category_id %>
+  <div class="form-group">
+    <%= form.select :category_id, @categories.collect { |c| [ c.name, c.id ]}, {include_blank: "Please select a category" } %>
   </div>
 
   <div class="actions">

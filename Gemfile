@@ -24,7 +24,7 @@ gem 'devise'
 gem 'paperclip'  # Mac only or gem 'carrierwave' for PC or Mac
 gem 'cancancan'
 gem 'pry-rails' #for rails c
-gem 'better_errors', group: :development
+gem 'carrierwave'
 gem 'binding_of_caller'
 
 # Use CoffeeScript for .coffee assets and views
