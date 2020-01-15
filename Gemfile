@@ -26,6 +26,8 @@ gem 'cancancan'
 gem 'pry-rails' #for rails c
 gem 'carrierwave'
 gem 'binding_of_caller'
+gem 'figaro'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
