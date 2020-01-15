@@ -17,14 +17,17 @@ class CartController < ApplicationController
       else
         #if the item is already in the cart, update the quantity	
         line_item = @order.lineitems.new(product_id: params[:product_id], quantity: params[:quantity])
-        
-        @order.save
-        session[:order_id] = @order.id
-        line_item.update(line_item_total: (line_item.quantity * line_item.product.price))
-
+        if line_item.quantity > line_item.product.quantity
+          line_item.destroy
+          redirect_to root_path, alert: "Insufficient stock, Items not added to cart"
+        else 
+          @order.save
+          session[:order_id] = @order.id
+          line_item.update(line_item_total: (line_item.quantity * line_item.product.price))
+          redirect_back(fallback_location: root_path)
+        end
       end
 
-    redirect_back(fallback_location: root_path)
   end
 
   def products
